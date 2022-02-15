@@ -99,7 +99,7 @@
 //  Extra Check State Logic
 
 // Knight:
-//  Viable moves are (coor+/-2 alphabet, coor+/-1) and (coor+/-1 alphabet, coor+/-1)
+//  Viable moves are (coor+/-2 alphabet, coor+/-1) and (coor+/-1 alphabet, coor+/-2)
 //  Exclude spaces occupied by same color
 //  Extra Check State Logic
 
