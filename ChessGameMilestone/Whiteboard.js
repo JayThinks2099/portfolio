@@ -27,20 +27,24 @@ const pawnCaptureMoves = [];
 
 const onClick = function() {
     testSquare = this.id;
-    turn = ["White's turn", "Black's Turn"];
+    turn = ["White's Turn", "Black's Turn"];
     if (document.getElementById("SID").innerHTML === "No Piece Selected") {
         document.getElementById("TOP").innerHTML = document.getElementById(this.id).innerHTML;
         document.getElementById("SID").innerHTML = "Piece Selected";
         if (document.getElementById("TOP").innerHTML === "") {
             document.getElementById("SID").innerHTML = "No Piece Selected";
         }
-        document.getElementById("ATR").innerHTML = this.id;
+        document.getElementById("COOR").innerHTML = this.id;
       } else {document.getElementById(this.id).innerHTML = document.getElementById("TOP").innerHTML;
               document.getElementById("SID").innerHTML = "No Piece Selected";
-              document.getElementById(document.getElementById("ATR").innerHTML).innerHTML = "";
+              document.getElementById(document.getElementById("COOR").innerHTML).innerHTML = "";
+              if (document.getElementById("TURN").innerHTML === "White's Turn"){
+                document.getElementById("TURN").innerHTML = turn[1]; 
+              } else {document.getElementById("TURN").innerHTML = turn[0];}
+              }
         
-      }
-
+      
+      
     rowRank(testSquare); //generates rowLoc and rankLoc
     coordinate(rowLoc, rankLoc); //generates movelist
     
