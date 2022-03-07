@@ -1,8 +1,16 @@
+// PIECE CODE (white, black):
+// King (&#9812 and &#9818)
+// Queen (&#9813 and &#9819)
+// Rook (&#9814 and &#9820)
+// Bishop (&#9815 and &#9821)
+// Knight (&#9816 and &#9822)
+// Pawn (&#9817 and &#9823)
+
 const whitePieces = ["&#9812", "&#9813", "&#9814", "&#9815", "&#9816", "&#9817"];
 const blackPieces = ["&#9818", "&#9819", "&#9820", "&#9821", "&#9822", "&#9823"];
-const allPieces = ["&#9812", "&#9813", "&#9814", "&#9815", "&#9816", "&#9817", 
+const allPieces = ["no piece", "&#9812", "&#9813", "&#9814", "&#9815", "&#9816", "&#9817", 
                     "&#9818", "&#9819", "&#9820", "&#9821", "&#9822", "&#9823"];
-const pieceIndex = ["King", "Queen", "Rook", "Bishop", "Knight", "Pawn", 
+const pieceIndex = ["nope", "King", "Queen", "Rook", "Bishop", "Knight", "Pawn", 
                     "KIng", "Queen", "Rook", "Bishop", "Knight", "Pawn"];
     
 
@@ -36,6 +44,7 @@ const moveIndex = [north, south, east, west, northEast, northWest, southEast, so
 
 const onClick = function() {
     testSquare = this.id;
+
     turn = ["White's Turn", "Black's Turn"];
     rowRank(testSquare); //generates rowLoc and rankLoc //Variable for moveset check
     
@@ -49,7 +58,7 @@ const onClick = function() {
             resetBoardColor();
         }
         document.getElementById("COOR").innerHTML = this.id;
-        // document.getElementById("ROWRANK").innerHTML = rowLoc + " : " + rankLoc
+        document.getElementById("ROWRANK").innerHTML = rowLoc + " : " + rankLoc;
         
 
       } else {document.getElementById(this.id).innerHTML = document.getElementById("TOP").innerHTML;
@@ -61,29 +70,104 @@ const onClick = function() {
               } else {document.getElementById("TURN").innerHTML = turn[0];}
               document.getElementById("COOR").innerHTML = "";
               document.getElementById("TOP").innerHTML = "";
-              document.getElementById("ROWRANK").innerHTML = "";
+               document.getElementById("ROWRANK").innerHTML = "";
             
 
               }
-        
-      
-      
+     
     
     coordinate(rowLoc, rankLoc); //generates movelist
-    
-    
-    
     };
 
 
-
+function colorCheck(pickedPiece) {
+    clickedColor = [];
+    for (i=0; i<allPieces.length; i++){
+        if (document.getElementById(pickedPiece).innerHTML === allPieces[i]) {
+            clickedColor = pieceIndex[i];
+        }
+    }
+}
 
  
 
 
-
-
-
+const resetGame = function() {
+  resetBoardColor();
+  document.getElementById('A8').innerHTML = "&#9820;";
+  document.getElementById('B8').innerHTML = "&#9822;";
+  document.getElementById('C8').innerHTML = "&#9821;";
+  document.getElementById('D8').innerHTML = "&#9819;";
+  document.getElementById('E8').innerHTML = "&#9818;";
+  document.getElementById('F8').innerHTML = "&#9821;";
+  document.getElementById('G8').innerHTML = "&#9822;";
+  document.getElementById('H8').innerHTML = "&#9820;";
+  
+  document.getElementById('A7').innerHTML = "";
+  document.getElementById('B7').innerHTML = "";
+  document.getElementById('C7').innerHTML = "";
+  document.getElementById('D7').innerHTML = "";
+  document.getElementById('E7').innerHTML = "";
+  document.getElementById('F7').innerHTML = "";
+  document.getElementById('G7').innerHTML = "";
+  document.getElementById('H7').innerHTML = "";
+  
+  document.getElementById('A6').innerHTML = "";
+  document.getElementById('B6').innerHTML = "";
+  document.getElementById('C6').innerHTML = "";
+  document.getElementById('D6').innerHTML = "";
+  document.getElementById('E6').innerHTML = "";
+  document.getElementById('F6').innerHTML = "";
+  document.getElementById('G6').innerHTML = "";
+  document.getElementById('H6').innerHTML = "";
+  
+  document.getElementById('A5').innerHTML = "";
+  document.getElementById('B5').innerHTML = "";
+  document.getElementById('C5').innerHTML = "";
+  document.getElementById('D5').innerHTML = "";
+  document.getElementById('E5').innerHTML = "";
+  document.getElementById('F5').innerHTML = "";
+  document.getElementById('G5').innerHTML = "";
+  document.getElementById('H5').innerHTML = "";
+  
+  document.getElementById('A4').innerHTML = "";
+  document.getElementById('B4').innerHTML = "";
+  document.getElementById('C4').innerHTML = "";
+  document.getElementById('D4').innerHTML = "";
+  document.getElementById('E4').innerHTML = "";
+  document.getElementById('F4').innerHTML = "";
+  document.getElementById('G4').innerHTML = "";
+  document.getElementById('H4').innerHTML = "";
+  
+  document.getElementById('A3').innerHTML = "";
+  document.getElementById('B3').innerHTML = "";
+  document.getElementById('C3').innerHTML = "";
+  document.getElementById('D3').innerHTML = "";
+  document.getElementById('E3').innerHTML = "";
+  document.getElementById('F3').innerHTML = "";
+  document.getElementById('G3').innerHTML = "";
+  document.getElementById('H3').innerHTML = "";
+  
+  document.getElementById('A2').innerHTML = "";
+  document.getElementById('B2').innerHTML = "";
+  document.getElementById('C2').innerHTML = "";
+  document.getElementById('D2').innerHTML = "";
+  document.getElementById('E2').innerHTML = "";
+  document.getElementById('F2').innerHTML = "";
+  document.getElementById('G2').innerHTML = "";
+  document.getElementById('H2').innerHTML = "";
+  
+  document.getElementById('A1').innerHTML = "";
+  document.getElementById('B1').innerHTML = "";
+  document.getElementById('C1').innerHTML = "";
+  document.getElementById('D1').innerHTML = "";
+  document.getElementById('E1').innerHTML = "";
+  document.getElementById('F1').innerHTML = "";
+  document.getElementById('G1').innerHTML = "";
+  document.getElementById('H1').innerHTML = "";
+  
+  
+}
 const resetBoardColor = function() {
   document.getElementById('A8').style.backgroundColor = "white";
   document.getElementById('B8').style.backgroundColor = "tan";
