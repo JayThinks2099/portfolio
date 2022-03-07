@@ -26,18 +26,30 @@ const pawnCaptureMoves = [];
 // Pawn (&#9817 and &#9823)
 
 const onClick = function() {
-    testSquare = this.id
-    document.getElementById("SID").innerHTML = testSquare;
+    testSquare = this.id;
+    if (document.getElementById("SID").innerHTML === "No Piece Selected") {
+        document.getElementById("SID").innerHTML = document.getElementById(this.id).innerHTML;
+        document.getElementById("ATR").innerHTML = this.id;
+      } else {document.getElementById(this.id).innerHTML = document.getElementById("SID").innerHTML;
+              document.getElementById("SID").innerHTML = "No Piece Selected";
+              document.getElementById(document.getElementById("ATR").innerHTML).innerHTML = "";
+        
+      }
+
     rowRank(testSquare); //generates rowLoc and rankLoc
     coordinate(rowLoc, rankLoc); //generates movelist
-    moveList(knightMoves);
+    
     clickedSquare(rowLoc, rankLoc);
     
     };
 
 
  
-async function moveList() {
+async function moveList(testPiece) {
+    if (testPiece ==="") {
+        document.getElementById("ATR").innerHTML = "no piece selected"
+    }
+    if(testPiece ==="&#9816" || testPiece ==="&#9822")
     document.getElementById("ATR").innerHTML = knightMoves;
      
 }
@@ -213,14 +225,14 @@ function rowRank(testSquare){
     const usingArrayFrom = Array.from(testSquare);
     const usingObjectAssign = Object.assign([], testSquare);
 
-for (i=0 ; i<8; i++) {
+for (i=0 ; i<9; i++) {
     if (rank[i] === testSquare[0]) {
         rankLoc = i+1;
     }
 }  
 
 
-for (i=0 ; i<8; i++) {
+for (i=0 ; i<9; i++) {
     if (row[i] === testSquare[1]) {
         rowLoc = i+1;
     }
