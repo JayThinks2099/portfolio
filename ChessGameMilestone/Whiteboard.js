@@ -27,10 +27,15 @@ const pawnCaptureMoves = [];
 
 const onClick = function() {
     testSquare = this.id;
+    turn = ["White's turn", "Black's Turn"];
     if (document.getElementById("SID").innerHTML === "No Piece Selected") {
-        document.getElementById("SID").innerHTML = document.getElementById(this.id).innerHTML;
+        document.getElementById("TOP").innerHTML = document.getElementById(this.id).innerHTML;
+        document.getElementById("SID").innerHTML = "Piece Selected";
+        if (document.getElementById("TOP").innerHTML === "") {
+            document.getElementById("SID").innerHTML = "No Piece Selected";
+        }
         document.getElementById("ATR").innerHTML = this.id;
-      } else {document.getElementById(this.id).innerHTML = document.getElementById("SID").innerHTML;
+      } else {document.getElementById(this.id).innerHTML = document.getElementById("TOP").innerHTML;
               document.getElementById("SID").innerHTML = "No Piece Selected";
               document.getElementById(document.getElementById("ATR").innerHTML).innerHTML = "";
         
@@ -44,6 +49,8 @@ const onClick = function() {
     };
 
 
+
+
  
 async function moveList(testPiece) {
     if (testPiece ==="") {
@@ -55,7 +62,7 @@ async function moveList(testPiece) {
 }
 
 async function clickedSquare() {
-    document.getElementById("TOP").innerHTML = "Row: " + rowLoc;
+    document.getElementById("TOP").innerHTML = "Piece: " + selectedPiece;
     document.getElementById("BOT").innerHTML = "Rank: " + rankLoc;
     
     
