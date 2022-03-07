@@ -1,8 +1,15 @@
 const whitePieces = ["&#9812", "&#9813", "&#9814", "&#9815", "&#9816", "&#9817"];
 const blackPieces = ["&#9818", "&#9819", "&#9820", "&#9821", "&#9822", "&#9823"];
+const allPieces = ["&#9812", "&#9813", "&#9814", "&#9815", "&#9816", "&#9817", 
+                    "&#9818", "&#9819", "&#9820", "&#9821", "&#9822", "&#9823"];
+const pieceIndex = ["King", "Queen", "Rook", "Bishop", "Knight", "Pawn", 
+                    "KIng", "Queen", "Rook", "Bishop", "Knight", "Pawn"];
+    
+
 
 const rank = ["A", "B", "C", "D", "E", "F", "G", "H"];
 const row = ["1", "2", "3", "4", "5", "6", "7", "8"];
+const viableMoves = [];
 
 const north = [];
 const south = [];
@@ -16,6 +23,8 @@ const knightMoves = [];
 const kingMoves = [];
 const pawnForwardMoves = [];
 const pawnCaptureMoves = [];
+const moveIndex = [north, south, east, west, northEast, northWest, southEast, southWest, knightMoves,
+                    kingMoves];
 
 // PIECE CODE (white, black):
 // King (&#9812 and &#9818)
@@ -28,27 +37,32 @@ const pawnCaptureMoves = [];
 const onClick = function() {
     testSquare = this.id;
     turn = ["White's Turn", "Black's Turn"];
-    rowRank(testSquare); //generates rowLoc and rankLoc
+    rowRank(testSquare); //generates rowLoc and rankLoc //Variable for moveset check
+    
 
     if (document.getElementById("SID").innerHTML === "No Piece Selected") {
         document.getElementById("TOP").innerHTML = document.getElementById(this.id).innerHTML;
         document.getElementById("SID").innerHTML = "Piece Selected";
+        document.getElementById(this.id).style.backgroundColor = "lightblue";
         if (document.getElementById("TOP").innerHTML === "") {
             document.getElementById("SID").innerHTML = "No Piece Selected";
+            resetBoardColor();
         }
         document.getElementById("COOR").innerHTML = this.id;
-        document.getElementById("ROWRANK").innerHTML = rowLoc + " : " + rankLoc
+        // document.getElementById("ROWRANK").innerHTML = rowLoc + " : " + rankLoc
+        
 
       } else {document.getElementById(this.id).innerHTML = document.getElementById("TOP").innerHTML;
               document.getElementById("SID").innerHTML = "No Piece Selected";
               document.getElementById(document.getElementById("COOR").innerHTML).innerHTML = "";
+              resetBoardColor();
               if (document.getElementById("TURN").innerHTML === "White's Turn"){
                 document.getElementById("TURN").innerHTML = turn[1]; 
               } else {document.getElementById("TURN").innerHTML = turn[0];}
               document.getElementById("COOR").innerHTML = "";
               document.getElementById("TOP").innerHTML = "";
               document.getElementById("ROWRANK").innerHTML = "";
-            resetBoardColor;
+            
 
               }
         
@@ -57,7 +71,7 @@ const onClick = function() {
     
     coordinate(rowLoc, rankLoc); //generates movelist
     
-    clickedSquare(rowLoc, rankLoc);
+    
     
     };
 
@@ -65,21 +79,9 @@ const onClick = function() {
 
 
  
-async function moveList(testPiece) {
-    if (testPiece ==="") {
-        document.getElementById("ATR").innerHTML = "no piece selected"
-    }
-    if(testPiece ==="&#9816" || testPiece ==="&#9822")
-    document.getElementById("ATR").innerHTML = knightMoves;
-     
-}
 
-async function clickedSquare() {
-    document.getElementById("TOP").innerHTML = "Piece: " + selectedPiece;
-    document.getElementById("BOT").innerHTML = "Rank: " + rankLoc;
-    
-    
-}
+
+
 
 
 const resetBoardColor = function() {
@@ -333,5 +335,3 @@ function coordinate(rowLoc, rankLoc){
         if(rowLoc+1<9 && rankLoc-1>0){kingMoves.push(rank[rankLoc].concat(row[rowLoc-2]))};
         if(rowLoc+1<9 && rankLoc>0){kingMoves.push(rank[rankLoc].concat(row[rowLoc+-1]))};
     };
-
-
