@@ -28,6 +28,8 @@ const pawnCaptureMoves = [];
 const onClick = function() {
     testSquare = this.id;
     turn = ["White's Turn", "Black's Turn"];
+    rowRank(testSquare); //generates rowLoc and rankLoc
+
     if (document.getElementById("SID").innerHTML === "No Piece Selected") {
         document.getElementById("TOP").innerHTML = document.getElementById(this.id).innerHTML;
         document.getElementById("SID").innerHTML = "Piece Selected";
@@ -35,17 +37,24 @@ const onClick = function() {
             document.getElementById("SID").innerHTML = "No Piece Selected";
         }
         document.getElementById("COOR").innerHTML = this.id;
+        document.getElementById("ROWRANK").innerHTML = rowLoc + " : " + rankLoc
+
       } else {document.getElementById(this.id).innerHTML = document.getElementById("TOP").innerHTML;
               document.getElementById("SID").innerHTML = "No Piece Selected";
               document.getElementById(document.getElementById("COOR").innerHTML).innerHTML = "";
               if (document.getElementById("TURN").innerHTML === "White's Turn"){
                 document.getElementById("TURN").innerHTML = turn[1]; 
               } else {document.getElementById("TURN").innerHTML = turn[0];}
+              document.getElementById("COOR").innerHTML = "";
+              document.getElementById("TOP").innerHTML = "";
+              document.getElementById("ROWRANK").innerHTML = "";
+            resetBoardColor;
+
               }
         
       
       
-    rowRank(testSquare); //generates rowLoc and rankLoc
+    
     coordinate(rowLoc, rankLoc); //generates movelist
     
     clickedSquare(rowLoc, rankLoc);

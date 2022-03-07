@@ -2,7 +2,7 @@
 
 .chessboard {
     width: 800px;
-    height: 900px;
+    height: 950px;
     margin: 100px;
     border: 50px solid black;
 }
@@ -31,7 +31,7 @@
 .bottom {
     float: left;
     width: 396px;
-    height: 46px;
+    height: 48px;
     background-color: lightcoral;
     font-size:30px;
     text-align:center;
