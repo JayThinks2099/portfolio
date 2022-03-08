@@ -31,6 +31,7 @@ const knightMoves = [];
 const kingMoves = [];
 const pawnForwardMoves = [];
 const pawnCaptureMoves = [];
+const turn = ["White's Turn", "Black's Turn"];
 const moveIndex = [north, south, east, west, northEast, northWest, southEast, southWest, knightMoves,
                     kingMoves];
 
@@ -44,8 +45,6 @@ const moveIndex = [north, south, east, west, northEast, northWest, southEast, so
 
 const onClick = function() {
     testSquare = this.id;
-
-    turn = ["White's Turn", "Black's Turn"];
     rowRank(testSquare); //generates rowLoc and rankLoc //Variable for moveset check
     
 
@@ -70,7 +69,7 @@ const onClick = function() {
               } else {document.getElementById("TURN").innerHTML = turn[0];}
               document.getElementById("COOR").innerHTML = "";
               document.getElementById("TOP").innerHTML = "";
-               document.getElementById("ROWRANK").innerHTML = "";
+              document.getElementById("ROWRANK").innerHTML = "";
             
 
               }
@@ -94,6 +93,9 @@ function colorCheck(pickedPiece) {
 
 const resetGame = function() {
   resetBoardColor();
+  document.getElementById("TURN").innerHTML = turn[0];
+  document.getElementById("TOP").innerHTML = "";
+  document.getElementById("COOR").innerHTML = "";
   document.getElementById('A8').innerHTML = "&#9820;";
   document.getElementById('B8').innerHTML = "&#9822;";
   document.getElementById('C8').innerHTML = "&#9821;";
@@ -103,14 +105,14 @@ const resetGame = function() {
   document.getElementById('G8').innerHTML = "&#9822;";
   document.getElementById('H8').innerHTML = "&#9820;";
   
-  document.getElementById('A7').innerHTML = "";
-  document.getElementById('B7').innerHTML = "";
-  document.getElementById('C7').innerHTML = "";
-  document.getElementById('D7').innerHTML = "";
-  document.getElementById('E7').innerHTML = "";
-  document.getElementById('F7').innerHTML = "";
-  document.getElementById('G7').innerHTML = "";
-  document.getElementById('H7').innerHTML = "";
+  document.getElementById('A7').innerHTML = "&#9823;";
+  document.getElementById('B7').innerHTML = "&#9823;";
+  document.getElementById('C7').innerHTML = "&#9823;";
+  document.getElementById('D7').innerHTML = "&#9823;";
+  document.getElementById('E7').innerHTML = "&#9823;";
+  document.getElementById('F7').innerHTML = "&#9823;";
+  document.getElementById('G7').innerHTML = "&#9823;";
+  document.getElementById('H7').innerHTML = "&#9823;";
   
   document.getElementById('A6').innerHTML = "";
   document.getElementById('B6').innerHTML = "";
@@ -148,23 +150,23 @@ const resetGame = function() {
   document.getElementById('G3').innerHTML = "";
   document.getElementById('H3').innerHTML = "";
   
-  document.getElementById('A2').innerHTML = "";
-  document.getElementById('B2').innerHTML = "";
-  document.getElementById('C2').innerHTML = "";
-  document.getElementById('D2').innerHTML = "";
-  document.getElementById('E2').innerHTML = "";
-  document.getElementById('F2').innerHTML = "";
-  document.getElementById('G2').innerHTML = "";
-  document.getElementById('H2').innerHTML = "";
+  document.getElementById('A2').innerHTML = "&#9817;";
+  document.getElementById('B2').innerHTML = "&#9817;";
+  document.getElementById('C2').innerHTML = "&#9817;";
+  document.getElementById('D2').innerHTML = "&#9817;";
+  document.getElementById('E2').innerHTML = "&#9817;";
+  document.getElementById('F2').innerHTML = "&#9817;";
+  document.getElementById('G2').innerHTML = "&#9817;";
+  document.getElementById('H2').innerHTML = "&#9817;";
   
-  document.getElementById('A1').innerHTML = "";
-  document.getElementById('B1').innerHTML = "";
-  document.getElementById('C1').innerHTML = "";
-  document.getElementById('D1').innerHTML = "";
-  document.getElementById('E1').innerHTML = "";
-  document.getElementById('F1').innerHTML = "";
-  document.getElementById('G1').innerHTML = "";
-  document.getElementById('H1').innerHTML = "";
+  document.getElementById('A1').innerHTML = "&#9814;";
+  document.getElementById('B1').innerHTML = "&#9816;";
+  document.getElementById('C1').innerHTML = "&#9815;";
+  document.getElementById('D1').innerHTML = "&#9813;";
+  document.getElementById('E1').innerHTML = "&#9812;";
+  document.getElementById('F1').innerHTML = "&#9815;";
+  document.getElementById('G1').innerHTML = "&#9816;";
+  document.getElementById('H1').innerHTML = "&#9814;";
   
   
 }

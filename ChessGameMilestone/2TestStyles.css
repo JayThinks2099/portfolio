@@ -1,7 +1,6 @@
 
 .screen {
-    width: 1920px;
-    height: 1080px;
+    display: flex;
     margin: 1em;
     column-span: all;
     border: 100px solid darkred;
@@ -46,4 +45,15 @@
     display: table-cell;
     vertical-align:left;
     border: 3px solid black;
+}
+
+.resetButton {
+    color: red;
+    width: 394px;
+    height: 46px;
+    background-color: black;
+    font-size: 30px;
+    text-align:center;
+    display: inline-block;
+    border: 3px solid grey;
 }
